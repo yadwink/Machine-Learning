@@ -157,17 +157,17 @@ ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:5000", "predict:app"]
 * Install Docker on your system
 * Install pipenv on your system
 * pipenv install requirements 
-* docker built -t cirrhosis-prediction .
-* docker run -it -p 5000:5000 cirrhosis:latest
+* docker built -t livcirrhosis-prediction .
+* docker run -it -p 5000:5000 livcirrhosis:latest
 
 # Deploy the model on a web service (AWS)
 
 * pipenv install awsebcli --dev
 * pipenv shell
-* eb init -p docker cirrhosis-serving
+* eb init -p docker livcirrhosis-serving
 * eb local run --port 5000
 * python predict.py
-* eb create cirrhosis-serving-env
+* eb create livcirrhosis-serving-env
 
 <img width="607" alt="cirrhosis app" src="https://user-images.githubusercontent.com/31966849/201208546-93e5d7ab-1cef-4d25-b2e6-8a3a18b27bc7.png">
 
