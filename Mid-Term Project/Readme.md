@@ -170,3 +170,10 @@ ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:5000", "predict:app"]
 * eb create Livcirrhosis-serving-env
 
 <img width="607" alt="cirrhosis app" src="https://user-images.githubusercontent.com/31966849/201208546-93e5d7ab-1cef-4d25-b2e6-8a3a18b27bc7.png">
+
+
+<img width="643" alt="cirrhosis web deployed app" src="https://user-images.githubusercontent.com/31966849/201209117-42d346a9-9ab1-4f5d-9b86-f800ecfe0069.png">
+
+
+# Deployed app on AWS link
+cirrhosis.eba-rii2zsem.us-east-1.elasticbeanstalk.com
