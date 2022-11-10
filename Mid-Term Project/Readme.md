@@ -164,11 +164,9 @@ ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:5000", "predict:app"]
 
 * pipenv install awsebcli --dev
 * pipenv shell
-* eb init -p docker livercirrhosis-serving
+* eb init -p docker Livcirrhosis-serving
 * eb local run --port 5000
 * python predict.py
-* eb create livercirrhosis-serving-env
+* eb create Livcirrhosis-serving-env
 
-
-<img width="558" alt="cirrhosis app" src="https://user-images.githubusercontent.com/31966849/201203395-94603e5f-ff80-42b0-83fb-8e95fe1e617d.png">
-
+<img width="607" alt="cirrhosis app" src="https://user-images.githubusercontent.com/31966849/201208546-93e5d7ab-1cef-4d25-b2e6-8a3a18b27bc7.png">
