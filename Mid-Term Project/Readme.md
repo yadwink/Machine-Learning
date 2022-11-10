@@ -74,15 +74,15 @@ Feature importance analysis using mutual info score. The mutual info score showe
  
 # Training different models
 
-> Logistic regression model training produced AUC score of 0.714
-> The decision tree classifier produced AUC score of 0.642
-> After that I tuned the decision tree classifier and decided on max_depth = 4, min_samples_leaf = 15 and trained the decision tree classifier again which produced AUC score of 0.742
-> At last, I trained a random forest classifier and tuned its parameters  and decided with n_estimators=50 max_depth=15, min_samples_leaf=50. The trained model gave final AUC score of 0.820 which is the highest and the best AUC score
-> I finally selected the random forest classifier model and trained this model on the train and validation set which gave AUC score of 0.768
+> Logistic regression model training produced *AUC score of 0.714*
+> The decision tree classifier produced *AUC score of 0.642*
+> After that I tuned the decision tree classifier and decided on max_depth = 4, min_samples_leaf = 15 and trained the decision tree classifier again which produced *AUC score of 0.742*
+> At last, I trained a random forest classifier and tuned its parameters and decided with n_estimators=50 max_depth=15, min_samples_leaf=50. The trained model gave final *AUC score of 0.820* which is the highest and the best AUC score
+> I finally selected the random forest classifier model and trained this model on the train and validation set which gave *AUC score of 0.768*
 
 # Saving and loading the saved model
 
-The model was saved to a  binary file using the Pickle library as model_rf.bin
+The model was saved to a  binary file using the Pickle library as *model_rf.bin*
 
 # Putting the model into a Web Service and local deployment using Docker:
 
@@ -90,13 +90,13 @@ I extracted the final trained model as the python script *predict.py*.
 
 # Creating a Python virtual environment using Pipenv 
 
-> I created a virtual environment using pipenv which created Pipfile and Pipfile.lock. These files contain library-related details, version names and hash files. 
+> I created a virtual environment using pipenv which created *Pipfile* and *Pipfile.lock*. These files contain library-related details, version names and hash files. 
 
 > These files can easily be used when the project runs on another machine. These dependencies  can be easily installed using command pipenv install. This command will look upto  Pipfile and Pipfile.lock and they will install the libraries with specified version.
 
 # Containerization in Docker 
 
-> I created the *dockerfile* that allows to separate this or any project  from any system machine and enables it running smoothly on any machine using a container. I then created the docker image which contained following dependencies of the project
+> I created the *dockerfile* that allows to separate this or any project from any system machine and enables it running smoothly on any machine using a container. I then created the docker image which contained following dependencies of the project
 
 ```
 FROM python:3.9-slim
@@ -113,31 +113,27 @@ COPY ["predict.py", "model_rf.bin", "./"]
 
 EXPOSE 9696
 
-ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
+ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 
 ```
-
 > Then I finally deployed my liver cirrhosis app inside a Docker container.
 
 # Local deployment of the project
 
-1. python *train.py* in the cmd
+* python *train.py* in the cmd
+* pip install flask
+* python *predict.py 
+* pip install waitress
+* waitress-serve --listen=127.0.0.1:9696 predict:app
+* python predict.py in a new terminal
+* pip install pipenv
+* pipenv install numpy scikit-learn==1.0.2 flask pandas requests waitress
+* pipenv install --python 3.9
 
-2. pip install flask
+# Activate the virtual environment
 
-3. python *predict.py* 
-
-4. pip install waitress
-
-5. waitress-serve --listen=127.0.0.1:9696 predict:app
-
-6. python predict-test.py in a new terminal
-
-7. pip install pipenv
-
-8. pipenv install numpy scikit-learn==1.0.2 flask pandas requests waitress
-
-9. pipenv install --python 3.9
+* pipenv shell
+* python predict-test.py*
 
  
 # Deploy the model 
@@ -145,9 +141,8 @@ ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:9696", "predict:app"]
 * Install Docker on your system
 * Install pipenv on your system
 * pipenv install requirements 
-* docker built -t diabetes-prediction .
+* docker built -t LiverCirrhosis-prediction .
 * docker run -it -p 9696:9696 LiverCirrhosis:latest
-
 
 # Deploy the model on a web service (AWS)
 
