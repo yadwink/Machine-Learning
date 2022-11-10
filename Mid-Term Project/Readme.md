@@ -113,7 +113,7 @@ COPY ["predict.py", "model_rf.bin", "./"]
 
 EXPOSE 9696
 
-ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:5000", "predict:app"]
+ENTRYPOINT ["waitress-serve", "--listen=0.0.0.0:5000", "predict:app"]
 
 ```
 > Then I finally deployed my liver cirrhosis app inside a Docker container.
@@ -168,3 +168,7 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:5000", "predict:app"]
 * eb local run --port 5000
 * python predict.py
 * eb create livercirrhosis-serving-env
+
+
+<img width="558" alt="cirrhosis app" src="https://user-images.githubusercontent.com/31966849/201203395-94603e5f-ff80-42b0-83fb-8e95fe1e617d.png">
+
