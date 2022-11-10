@@ -113,7 +113,7 @@ COPY ["predict.py", "model_rf.bin", "./"]
 
 EXPOSE 9696
 
-ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
+ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:5000", "predict:app"]
 
 ```
 > Then I finally deployed my liver cirrhosis app inside a Docker container.
@@ -127,7 +127,7 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 * pip install flask
 * python *predict.py*
 * pip install waitress
-* waitress-serve --listen=127.0.0.1:9696 predict:app
+* waitress-serve --listen=127.0.0.1:5000 predict:app
 * python predict.py in a new terminal
 * pip install pipenv
 * pipenv install numpy scikit-learn==1.0.2 flask pandas requests waitress
@@ -139,7 +139,19 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 * python *predict-test.py*
 <img width="448" alt="predict-test py" src="https://user-images.githubusercontent.com/31966849/201190426-b5313833-00de-4d60-854a-2a20acb8931a.png">
 
- 
+* This will launch the pipenv shell and runs waitress service. It results with predictions and probabilities from the model as shown in the image above
+* docker run -it --rm python:3.9-slim
+* docker run -it --rm --entrypoint=bash python:3.9-slim
+
+# Building the Docker image(using wsl)
+
+* docker build -t zoomcamp-test .
+* running the docker image -> docker run -it --rm --entrypoint=bash zoomcamp-test
+* ls command brings inside the app terminal with list of files in app terminal
+* waitress-serve --listen=127.0.0.1:5000 predict:app launches the waitress service within app termina
+* docker run -it --rm -p 5000:5000 zoomcamp-test
+* in new cmd run pipenv shell
+
 # Deploy the model 
 
 * Install Docker on your system
@@ -153,6 +165,6 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 * pipenv install awsebcli --dev
 * pipenv shell
 * eb init -p docker livercirrhosis-serving
-* eb local run --port 9696
+* eb local run --port 5000
 * python predict.py
 * eb create livercirrhosis-serving-env
