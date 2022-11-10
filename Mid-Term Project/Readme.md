@@ -120,9 +120,10 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 
 # Local deployment of the project
 
-* python *train.py* in the cmd
+* python *train.py* 
+<img width="370" alt="train py" src="https://user-images.githubusercontent.com/31966849/201190544-8080132d-e24f-4a5d-bbdd-b6ec0fd278da.png">
 * pip install flask
-* python *predict.py 
+* python *predict.py*
 * pip install waitress
 * waitress-serve --listen=127.0.0.1:9696 predict:app
 * python predict.py in a new terminal
@@ -133,7 +134,8 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 # Activate the virtual environment
 
 * pipenv shell
-* python predict-test.py*
+* python *predict-test.py*
+<img width="448" alt="predict-test py" src="https://user-images.githubusercontent.com/31966849/201190426-b5313833-00de-4d60-854a-2a20acb8931a.png">
 
  
 # Deploy the model 
