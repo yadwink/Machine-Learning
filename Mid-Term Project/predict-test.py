@@ -1,7 +1,6 @@
-host = 'Livercirrhosis-env.eba-rii2zsem.us-east-1.elasticbeanstalk.com'
 import requests
 
-url = f'http://{host}/predict/'
+url = 'http://127.0.0.1:5000/predict/'
 
 patient_id = 'patient-abc123'
 
