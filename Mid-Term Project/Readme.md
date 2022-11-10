@@ -121,7 +121,9 @@ ENTRYPOINT ["waitress-serve", "--listen=127.0.0.1:9696", "predict:app"]
 # Local deployment of the project
 
 * python *train.py* 
+
 <img width="370" alt="train py" src="https://user-images.githubusercontent.com/31966849/201190544-8080132d-e24f-4a5d-bbdd-b6ec0fd278da.png">
+
 * pip install flask
 * python *predict.py*
 * pip install waitress
