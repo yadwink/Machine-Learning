@@ -1,0 +1,12 @@
+FROM python:3.11.1-slim
+
+WORKDIR /app
+COPY . /app/
+
+RUN pip install Pillow
+RUN pip install keras-image-helper
+RUN pip install tflite
+
+EXPOSE 5000
+
+ENTRYPOINT [ "waitress-serve", "--listen=0.0.0.0:5000", "predict:app" ]
