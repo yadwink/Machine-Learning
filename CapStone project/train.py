@@ -18,7 +18,6 @@ import tflite_runtime.interpreter as tflite
 import pickle
 dv = DictVectorizer(sparse=False)
 
-# https://github.com/sukritishuk/ML_ZoomCamp_Midterm_Project
 # data
 # !kaggle datasets download -d kritikseth/fruit-and-vegetable-image-recognition
 # !patoolib.extract_archive("fruit-and-vegetable-image-recognition.zip",outdir="data")
